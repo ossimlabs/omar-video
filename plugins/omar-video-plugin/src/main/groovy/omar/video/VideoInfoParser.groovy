@@ -3,7 +3,7 @@ package omar.video
 import groovy.util.slurpersupport.GPathResult
 
 import omar.core.Repository
-import omar.stager.OmsInfoParser
+import omar.oms.OmsInfoParser
 import omar.video.VideoDataSet
 
 /**
