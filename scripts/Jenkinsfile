@@ -26,22 +26,22 @@ node(""){
         }
 
         dir("omar-stager-plugin") {
-            git branch: "${OSSIM_GIT_BRANCH}", url: "https://github.com/ossimlabs/omar-stager-plugin.git"
+            git branch: "${OSSIM_GIT_BRANCH}", url: "https://github.com/ossimlabs/omar-stager.git"
         }
         dir("omar-core-plugin") {
-            git branch: "${OSSIM_GIT_BRANCH}", url: "https://github.com/ossimlabs/omar-core-plugin.git"
+            git branch: "${OSSIM_GIT_BRANCH}", url: "https://github.com/ossimlabs/omar-core.git"
         }
         dir("omar-openlayers-plugin") {
-            git branch: "${OSSIM_GIT_BRANCH}", url: "https://github.com/ossimlabs/omar-openlayers-plugin.git"
+            git branch: "${OSSIM_GIT_BRANCH}", url: "https://github.com/ossimlabs/omar-openlayers.git"
         }
         dir("omar-hibernate-spatial-plugin") {
-            git branch: "${OSSIM_GIT_BRANCH}", url: "https://github.com/ossimlabs/omar-hibernate-spatial-plugin.git"
+            git branch: "${OSSIM_GIT_BRANCH}", url: "https://github.com/ossimlabs/omar-hibernate-spatial.git"
         }
         dir("omar-ingest-metrics-plugin") {
-            git branch: "${OSSIM_GIT_BRANCH}", url: "https://github.com/ossimlabs/omar-ingest-metrics-plugin.git"
+            git branch: "${OSSIM_GIT_BRANCH}", url: "https://github.com/ossimlabs/omar-ingest-metrics.git"
         }
         dir("omar-oms-plugin") {
-            git branch: "${OSSIM_GIT_BRANCH}", url: "https://github.com/ossimlabs/omar-oms-plugin.git"
+            git branch: "${OSSIM_GIT_BRANCH}", url: "https://github.com/ossimlabs/omar-oms.git"
         }
 
         dir(omarCommonProjName) {
