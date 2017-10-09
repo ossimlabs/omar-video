@@ -41,6 +41,7 @@ class VideoDataSet
 
 	static mapping = {
       		cache true
+					    autowire true
       		id generator: 'identity'
 		indexId index: 'video_data_set_index_id_idx', unique: true
 		filename index: 'video_data_set_filename_idx'
