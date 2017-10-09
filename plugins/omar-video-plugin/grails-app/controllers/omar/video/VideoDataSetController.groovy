@@ -1,9 +1,6 @@
 package omar.video
 
-import com.wordnik.swagger.annotations.Api
-import com.wordnik.swagger.annotations.ApiImplicitParam
-import com.wordnik.swagger.annotations.ApiImplicitParams
-import com.wordnik.swagger.annotations.ApiOperation
+import io.swagger.annotations.*
 import omar.core.HttpStatusMessage
 
 @Api( value = "dataManager",
