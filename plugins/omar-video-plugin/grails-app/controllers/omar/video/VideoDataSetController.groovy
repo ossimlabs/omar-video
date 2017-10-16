@@ -22,6 +22,7 @@ class VideoDataSetController
 			@ApiImplicitParam( name = 'filename', 
 			value = 'Path to file to add', 
 			dataType = 'string', 
+			paramType = "query",
 			required = true )
 	] )
 	def addVideo()
@@ -37,7 +38,11 @@ class VideoDataSetController
 		            produces = 'text/plain', 
 		            httpMethod = 'POST' )
 	@ApiImplicitParams( [
-			@ApiImplicitParam( name = 'filename', value = 'Path to file to add', dataType = 'string', required = true )//,
+			@ApiImplicitParam( name = 'filename', 
+			                   value = 'Path to file to add', 
+			                   dataType = 'string', 
+									 paramType = "query",
+			                   required = true )//,
 	] )
 	def removeVideo()
 	{
