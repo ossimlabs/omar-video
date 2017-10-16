@@ -15,11 +15,14 @@ class VideoDataSetController
 
 	def videoDataSetService
 
-	@ApiOperation( value = "Add a Video to the database", produces = 'text/plain', httpMethod = 'POST' )
+	@ApiOperation( value = "Add a Video to the database", 
+		produces = 'text/plain', 
+		httpMethod = 'POST' )
 	@ApiImplicitParams( [
-			@ApiImplicitParam( name = 'filename', value = 'Path to file to add', dataType = 'string', required = true )//,
-//			@ApiImplicitParam(name = 'version', value = 'Version to request', allowableValues="[1.1.1]", defaultValue = '1.1.1', paramType = 'query', dataType = 'string', required=true),
-//			@ApiImplicitParam(name = 'request', value = 'Request type', allowableValues="[GetCapabilities]", defaultValue = 'GetCapabilities', paramType = 'query', dataType = 'string', required=true),
+			@ApiImplicitParam( name = 'filename', 
+			value = 'Path to file to add', 
+			dataType = 'string', 
+			required = true )
 	] )
 	def addVideo()
 	{
@@ -30,11 +33,11 @@ class VideoDataSetController
 		render( httpStatusMessage.message )
 	}
 
-	@ApiOperation( value = "Add a Video to the database", produces = 'text/plain', httpMethod = 'POST' )
+	@ApiOperation( value = "Add a Video to the database", 
+		            produces = 'text/plain', 
+		            httpMethod = 'POST' )
 	@ApiImplicitParams( [
 			@ApiImplicitParam( name = 'filename', value = 'Path to file to add', dataType = 'string', required = true )//,
-//			@ApiImplicitParam(name = 'version', value = 'Version to request', allowableValues="[1.1.1]", defaultValue = '1.1.1', paramType = 'query', dataType = 'string', required=true),
-//			@ApiImplicitParam(name = 'request', value = 'Request type', allowableValues="[GetCapabilities]", defaultValue = 'GetCapabilities', paramType = 'query', dataType = 'string', required=true),
 	] )
 	def removeVideo()
 	{
