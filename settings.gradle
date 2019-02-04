@@ -4,11 +4,7 @@ pluginManagement {
     gradlePluginPortal()
   }
 }
-def final O2_DEV_HOME = System.getenv('O2_DEV_HOME')
-
-if ( O2_DEV_HOME ) {
 
 include 'omar-video-plugin'
 
-project(':omar-video-plugin').projectDir = "${O2_DEV_HOME}/omar-video/plugins/omar-video-plugin" as File
-}
+project(':omar-video-plugin').projectDir = "${rootProject.projectDir}/plugins/omar-video-plugin" as File
