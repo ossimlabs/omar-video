@@ -46,6 +46,7 @@ dependencyManagement {
 }
 
 dependencies {
+  compile "io.ossim.omar.plugins:omar-core-plugin:${latestGradleIdentifier}"
   compile "io.ossim.omar.plugins:omar-stager-plugin:${latestGradleIdentifier}"
 
   compile "org.webjars:flowplayer-html5:6.0.4"
