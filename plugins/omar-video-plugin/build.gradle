@@ -64,7 +64,7 @@ dependencies {
     compile "io.ossim.omar.plugins:omar-stager-plugin:+"
   }
 
-  compile "org.webjars:flowplayer-html5:6.0.4"
+  compile "org.webjars:flowplayer-html5:6.0.5"
   //compile "org.springframework.cloud:spring-cloud-starter-zipkin"
   compile "org.springframework.boot:spring-boot-starter-logging"
   compile "org.springframework.boot:spring-boot-autoconfigure"

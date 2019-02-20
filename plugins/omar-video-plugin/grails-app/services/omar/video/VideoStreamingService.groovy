@@ -11,9 +11,9 @@ class VideoStreamingService
 
 	def getVideoDetails( def params )
 	{
-		def flashUrlRoot = grailsApplication.config.videoStreaming.flashUrlRoot
-		def flashDirRoot = grailsApplication.config.videoStreaming.flashDirRoot
-    def videoURL = null
+		def videoServerUrlRoot = grailsApplication.config.videoStreaming.videoServerUrlRoot
+		def videoServerDirRoot = grailsApplication.config.videoStreaming.videoServerDirRoot
+		def videoURL = null
 
 		def videoId = (params.id ==~ /\d+/ ) ? params.id as Long : null
 
@@ -26,32 +26,37 @@ class VideoStreamingService
 		if ( videoDataSet )
 		{
 			def videoFile = videoDataSet.filename as File
-			def flvFile = "${ flashDirRoot }/${ FilenameUtils.getBaseName( videoFile.name ) }.flv" as File
+			def mpgFile = new File( videoServerDirRoot, "${FilenameUtils.getBaseName( videoFile.name ) }.mpg" )
 
-			videoURL = grailsLinkGenerator.link( absolute: true, base: flashUrlRoot, uri: "/${ flvFile.name }" )
+			videoURL = grailsLinkGenerator.link( absolute: true, base: videoServerUrlRoot, uri: "/${ mpgFile.name }" )
 
-			if ( !flvFile.exists() )
+			if ( !mpgFile.exists() )
 			{
-				convertVideo( videoFile, flvFile )
+				convertVideo( videoFile, mpgFile )
 			}
 		}
 
 		[ videoDataSet: videoDataSet, videoURL: videoURL ]
 	}
 
-	private static def convertVideo( File videoFile, File flvFile )
+	private static def convertVideo( File inputFile, File outputFile )
 	{
 		def cmd = [
-				"ffmpeg",
-				"-i",
-				"${ videoFile.absolutePath }",
-				"-an",
-				"-vb",
-				"2048k",
-				"-r",
-				"15",
-				"-y",
-				"${ flvFile.absolutePath }"
+			'ffmpeg',
+			'-i', inputFile.absolutePath,
+			'-deinterlace',
+			'-pix_fmt', 'yuv420p',
+			'-vcodec', 'libx264', 
+			'-preset', 'slow', 
+			'-vprofile', 'high', 
+			'-trellis', '2', 
+			'-crf', '20', 
+			'-acodec', 'libfaac',
+			'-ac', '2', 
+			'-ab', '192k',
+			'-f', 'mp4', 
+			'-y', 
+			outputFile.absolutePath
 		]
 
 		println cmd.join( ' ' )
