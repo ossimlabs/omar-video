@@ -14,9 +14,9 @@
 <div class="content">
     <h1>Video</h1>
     <div id="myvid">
-        <div data-ratio="0.6" data-autoplay='true' class="flowplayer">
-            <video data-title="FLV video">
-                <source type="video/flash" src="${videoURL}">
+        <div>
+            <video autoplay controls width="${videoDataSet.width}" height="${videoDataSet.height}">
+                <source type="video/mp4" src="${videoURL}">
             </video>
         </div>
     </div>
