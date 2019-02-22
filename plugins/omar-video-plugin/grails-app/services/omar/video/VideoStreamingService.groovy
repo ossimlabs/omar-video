@@ -26,13 +26,13 @@ class VideoStreamingService
 		if ( videoDataSet )
 		{
 			def videoFile = videoDataSet.filename as File
-			def mpgFile = new File( videoServerDirRoot, "${FilenameUtils.getBaseName( videoFile.name ) }.mpg" )
+			def mp4File = new File( videoServerDirRoot, "${FilenameUtils.getBaseName( videoFile.name ) }.mp4" )
 
-			videoURL = grailsLinkGenerator.link( absolute: true, base: videoServerUrlRoot, uri: "/${ mpgFile.name }" )
+			videoURL = grailsLinkGenerator.link( absolute: true, base: videoServerUrlRoot, uri: "/${ mp4File.name }" )
 
-			if ( !mpgFile.exists() )
+			if ( !mp4File.exists() )
 			{
-				convertVideo( videoFile, mpgFile )
+				convertVideo( videoFile, mp4File )
 			}
 		}
 
