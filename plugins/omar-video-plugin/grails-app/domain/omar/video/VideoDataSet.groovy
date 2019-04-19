@@ -15,6 +15,8 @@ import groovy.transform.ToString
 class VideoDataSet
 {
 	String filename
+        String fileType
+
 	Long width
 	Long height
 
@@ -45,6 +47,7 @@ class VideoDataSet
       		id generator: 'identity'
 		indexId index: 'video_data_set_index_id_idx', unique: true
 		filename index: 'video_data_set_filename_idx'
+		fileType index: 'video_data_set_fileType_idx'
 		otherTagsXml type: 'text'//, index: 'video_data_set_metadata_other_tags_idx'
 		startDate column: 'start_date', type: 'timestamp', index: 'video_data_set_start_date_idx,video_data_set_time_idx', sqlType: "timestamp with time zone"
 		endDate column: 'end_date', type: 'timestamp', index: 'video_data_set_end_date_idx,video_data_set_time_idx', sqlType: "timestamp with time zone"
@@ -56,6 +59,7 @@ class VideoDataSet
 		width( min: 0L )
 		height( min: 0L )
 		filename( nullable: true )
+		fileType( nullable: true )
 		otherTagsXml( nullable: true, blank: false )
 		startDate( nullable: true )
 		endDate( nullable: true )
