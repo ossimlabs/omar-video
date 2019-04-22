@@ -15,7 +15,7 @@ import groovy.transform.ToString
 class VideoDataSet
 {
 	String filename
-        String fileType
+  String fileType
 
 	Long width
 	Long height
@@ -42,9 +42,9 @@ class VideoDataSet
 	BigInteger styleId
 
 	static mapping = {
-      		cache true
-					    autowire true
-      		id generator: 'identity'
+    cache true
+		autowire true
+    id generator: 'identity'
 		indexId index: 'video_data_set_index_id_idx', unique: true
 		filename index: 'video_data_set_filename_idx'
 		fileType index: 'video_data_set_fileType_idx'
