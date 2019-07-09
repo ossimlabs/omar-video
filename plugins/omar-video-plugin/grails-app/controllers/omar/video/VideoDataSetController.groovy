@@ -19,11 +19,20 @@ class VideoDataSetController
 		produces = 'text/plain', 
 		httpMethod = 'POST' )
 	@ApiImplicitParams( [
-			@ApiImplicitParam( name = 'filename', 
+		@ApiImplicitParam( 
+			name = 'filename', 
 			value = 'Path to file to add', 
 			dataType = 'string', 
 			paramType = "query",
-			required = true )
+			required = true ),
+		@ApiImplicitParam( 
+			name = 'convert', 
+			value = 'Convert to MP4', 
+			allowableValues="true,false", 
+			defaultValue="false", 
+			dataType = "boolean", 
+			paramType = "query", 
+			required = false)
 	] )
 	def addVideo()
 	{
@@ -42,7 +51,7 @@ class VideoDataSetController
 			                   value = 'Path to file to add', 
 			                   dataType = 'string', 
 									 paramType = "query",
-			                   required = true )//,
+			                   required = true )
 	] )
 	def removeVideo()
 	{
