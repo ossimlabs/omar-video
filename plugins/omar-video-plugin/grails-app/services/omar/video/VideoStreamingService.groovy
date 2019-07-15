@@ -3,6 +3,8 @@ package omar.video
 import grails.transaction.Transactional
 import org.apache.commons.io.FilenameUtils
 
+import static grails.async.Promises.*
+
 @Transactional( readOnly = true )
 class VideoStreamingService
 {
@@ -32,12 +34,17 @@ class VideoStreamingService
 
 			if ( !mp4File.exists() )
 			{
-				convertVideo( videoFile, mp4File )
+				def p = task {
+					convertVideo( videoFile, mp4File )
+				}
+
+				waitAll( p )
 			}
-		}
+		}	
 
 		[ videoDataSet: videoDataSet, videoURL: videoURL ]
 	}
+
 
 	private static def convertVideo( File inputFile, File outputFile )
 	{

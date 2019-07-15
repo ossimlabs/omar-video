@@ -43,15 +43,15 @@ class VideoDataSetController
 		render( httpStatusMessage.message )
 	}
 
-	@ApiOperation( value = "Add a Video to the database", 
-		            produces = 'text/plain', 
-		            httpMethod = 'POST' )
+	@ApiOperation( value = "Remove a Video from the database", 
+		produces = 'text/plain', 
+		httpMethod = 'POST' )
 	@ApiImplicitParams( [
-			@ApiImplicitParam( name = 'filename', 
-			                   value = 'Path to file to add', 
-			                   dataType = 'string', 
-									 paramType = "query",
-			                   required = true )
+		@ApiImplicitParam( name = 'filename', 
+							value = 'Path to file to add', 
+							dataType = 'string', 
+							paramType = "query",
+							required = true )
 	] )
 	def removeVideo()
 	{
