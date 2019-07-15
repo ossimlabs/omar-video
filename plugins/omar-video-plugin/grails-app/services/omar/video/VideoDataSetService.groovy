@@ -18,6 +18,8 @@ class VideoDataSetService implements ApplicationContextAware // extends DataMana
 
 	ApplicationContext applicationContext
 
+	VideoStreamingService videoStreamingService
+
 	def deleteFromRepository( Repository repository )
 	{
 		def videoDataSets = VideoDataSet.findAllByRepository( repository )
@@ -77,6 +79,13 @@ class VideoDataSetService implements ApplicationContextAware // extends DataMana
 						else
 						{
 							log.info( "Added file ${ file }" )
+
+							if ( params?.convert?.toBoolean() ) 
+							{
+								def videoDetails = videoStreamingService.getVideoDetails(videoDataSet)
+
+								httpStatusMessage.message = ( "${httpStatusMessage.message} ${videoDetails.videoURL} ")
+							}
 						}
 					}
 					//new org.ossim.omar.DataManagerQueueItem(file: file.absolutePath, baseDir: parent.baseDir, dataInfo: xml).save()

@@ -19,11 +19,20 @@ class VideoDataSetController
 		produces = 'text/plain', 
 		httpMethod = 'POST' )
 	@ApiImplicitParams( [
-			@ApiImplicitParam( name = 'filename', 
+		@ApiImplicitParam( 
+			name = 'filename', 
 			value = 'Path to file to add', 
 			dataType = 'string', 
 			paramType = "query",
-			required = true )
+			required = true ),
+		@ApiImplicitParam( 
+			name = 'convert', 
+			value = 'Convert to MP4', 
+			allowableValues="true,false", 
+			defaultValue="false", 
+			dataType = "boolean", 
+			paramType = "query", 
+			required = false)
 	] )
 	def addVideo()
 	{
@@ -34,15 +43,15 @@ class VideoDataSetController
 		render( httpStatusMessage.message )
 	}
 
-	@ApiOperation( value = "Add a Video to the database", 
-		            produces = 'text/plain', 
-		            httpMethod = 'POST' )
+	@ApiOperation( value = "Remove a Video from the database", 
+		produces = 'text/plain', 
+		httpMethod = 'POST' )
 	@ApiImplicitParams( [
-			@ApiImplicitParam( name = 'filename', 
-			                   value = 'Path to file to add', 
-			                   dataType = 'string', 
-									 paramType = "query",
-			                   required = true )//,
+		@ApiImplicitParam( name = 'filename', 
+							value = 'Path to file to add', 
+							dataType = 'string', 
+							paramType = "query",
+							required = true )
 	] )
 	def removeVideo()
 	{
