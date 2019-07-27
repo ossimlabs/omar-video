@@ -15,7 +15,7 @@ class VideoDataSetService implements ApplicationContextAware // extends DataMana
 	def parserPool
 	def dataInfoService
 	def ingestService
-
+	
 	ApplicationContext applicationContext
 
 	VideoStreamingService videoStreamingService
@@ -85,6 +85,10 @@ class VideoDataSetService implements ApplicationContextAware // extends DataMana
 								def videoDetails = videoStreamingService.getVideoDetails(videoDataSet)
 
 								httpStatusMessage.message = ( "${httpStatusMessage.message} ${videoDetails.videoURL} ")
+							}
+							if(params?.buildThumbnails)
+							{
+								videoStreamingService.createThumbnail(file.toString())
 							}
 						}
 					}
