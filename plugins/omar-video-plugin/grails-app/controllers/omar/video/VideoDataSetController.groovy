@@ -12,6 +12,7 @@ class VideoDataSetController
 {
 	static allowedMethods = [
 		addVideo: 'POST',
+		getThumbnail: 'GET',
 		removeVideo: 'POST'
 	]
 
