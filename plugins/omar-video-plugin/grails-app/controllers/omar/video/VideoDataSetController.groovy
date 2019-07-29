@@ -12,6 +12,7 @@ class VideoDataSetController
 {
 	static allowedMethods = [
 		addVideo: 'POST',
+		getThumbnail: 'GET',
 		removeVideo: 'POST'
 	]
 
@@ -74,7 +75,7 @@ class VideoDataSetController
 	}
 
 	@ApiOperation( value = "Create a thumbnail given the id", 
-		produces = 'text/plain', 
+		produces = 'image/jpeg', 
 		httpMethod = 'GET' )
 	@ApiImplicitParams( [
 		@ApiImplicitParam( 
