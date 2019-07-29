@@ -42,7 +42,7 @@ class VideoDataSetController
 								 defaultValue="true", 
 								 dataType = "boolean", 
 								 paramType = "query", 
-								 required = false),
+								 required = false)
 	] )
 
 	def addVideo()
