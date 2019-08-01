@@ -5,8 +5,6 @@ import omar.core.HttpStatus
 import org.springframework.context.ApplicationContext
 import org.springframework.context.ApplicationContextAware
 
-//import org.ossim.omar.stager.DataManagerService
-
 class VideoDataSetService implements ApplicationContextAware // extends DataManagerService
 {
 
@@ -72,7 +70,6 @@ class VideoDataSetService implements ApplicationContextAware // extends DataMana
 							httpStatusMessage?.status = HttpStatus.UNSUPPORTED_MEDIA_TYPE
 							httpStatusMessage?.message = "Unable to save ${ file }, the file probably alread exists"
 							log.error( httpStatusMessage?.message )
-							//stagerHandler.processRejected(file)
 						}
 						else
 						{
