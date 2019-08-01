@@ -1,4 +1,9 @@
 ---
+videoStreaming:
+  videoServerUrlRoot:
+  videoServerDirRoot:
+
+---
 grails:
     profile: web-plugin
     codegen:
