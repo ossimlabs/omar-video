@@ -28,7 +28,6 @@ class ThumbnailUtilities
                                formatLowercase != "jpg")
     BufferedImage thumbnailImg = new BufferedImage(w, h, transparentFlag?BufferedImage.TYPE_INT_ARGB:BufferedImage.TYPE_INT_RGB);//img.getType());
     //Adjust target
-    println "TRANSPARENT??????? ${transparentFlag}"
     if(scale >=1)
     {
         tgtW = srcW/scale
