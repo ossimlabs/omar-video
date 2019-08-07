@@ -21,9 +21,11 @@ class ThumbnailUtilities
     int y = 0
     int tgtW = w
     int tgtH = h
-    def maxSize = Math.max(srcW, srcH);
-    def minTgt = Math.min(tgtW,tgtH)
-    Double scale = maxSize/minTgt;
+
+    Double scale = srcW/tgtW
+    if ( srcH / scale > tgtH ) {
+      scale = srcH/tgtH
+    }
     Boolean transparentFlag = (formatLowercase != "jpeg" && 
                                formatLowercase != "jpg")
     BufferedImage thumbnailImg = new BufferedImage(w, h, transparentFlag?BufferedImage.TYPE_INT_ARGB:BufferedImage.TYPE_INT_RGB);//img.getType());
@@ -38,10 +40,13 @@ class ThumbnailUtilities
         tgtW = srcW
         tgtH = srcH
     }
+
+    int cntrW = ( w - tgtW ) / 2
+    int cntrH = ( h - tgtH ) / 2
     Graphics2D g = thumbnailImg.createGraphics();
     g.setRenderingHint(RenderingHints.KEY_INTERPOLATION,
                        RenderingHints.VALUE_INTERPOLATION_BILINEAR);
-    g.drawImage(img, 0, 0, tgtW, tgtH, 0, 0, srcW, srcH, null);
+    g.drawImage(img, cntrW, cntrH, tgtW + cntrW, tgtH + cntrH, 0, 0, srcW, srcH, null);
     g.dispose();
 
     thumbnailImg

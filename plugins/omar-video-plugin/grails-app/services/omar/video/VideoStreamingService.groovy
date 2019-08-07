@@ -102,8 +102,10 @@ class VideoStreamingService
 			{
 				File outputThumbnailFilename = outputThumbnail as File
 				BufferedImage img = ThumbnailUtilities.fileToBufferedImage(outputThumbnailFilename)
-				Integer size = command.size?:128
-				BufferedImage thumbnailImage = ThumbnailUtilities.createThumbnail(img, size, command.type?:"jpeg");
+				Integer w = command.w?:128
+				Integer h = command.h?:85
+				println "did this: w = " + w + " h = " + h
+				BufferedImage thumbnailImage = ThumbnailUtilities.createThumbnail(img, w, h, command.type?:"jpeg");
 				ByteArrayOutputStream baos = new ByteArrayOutputStream();
 				ImageIO.write(thumbnailImage, command.type, baos);
 				result.buffer = baos.buf
