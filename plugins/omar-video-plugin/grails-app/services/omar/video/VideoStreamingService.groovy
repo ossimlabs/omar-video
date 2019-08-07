@@ -103,7 +103,7 @@ class VideoStreamingService
 				File outputThumbnailFilename = outputThumbnail as File
 				BufferedImage img = ThumbnailUtilities.fileToBufferedImage(outputThumbnailFilename)
 				Integer w = command.w?:128
-				Integer h = command.h?:128
+				Integer h = command.h?:85
 				println "did this: w = " + w + " h = " + h
 				BufferedImage thumbnailImage = ThumbnailUtilities.createThumbnail(img, w, h, command.type?:"jpeg");
 				ByteArrayOutputStream baos = new ByteArrayOutputStream();
