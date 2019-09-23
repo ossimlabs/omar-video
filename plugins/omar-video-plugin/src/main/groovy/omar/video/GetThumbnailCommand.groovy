@@ -7,11 +7,13 @@ import groovy.transform.ToString
 class GetThumbnailCommand implements Validateable
 {
    String id
-   Integer size=128
+   Integer w=128
+   Integer h=128
    String type="jpeg"
    static constraints = {
       id nullable: false
-      size nullable: true
+      w nullable: true
+      h nullable: true
       type nullable: true
    }
 
