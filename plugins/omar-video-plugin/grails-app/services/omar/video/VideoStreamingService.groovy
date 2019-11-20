@@ -1,6 +1,6 @@
 package omar.video
 
-import grails.transaction.Transactional
+import grails.gorm.transactions.Transactional
 import org.apache.commons.io.FilenameUtils
 import javax.imageio.ImageIO
 import static grails.async.Promises.*

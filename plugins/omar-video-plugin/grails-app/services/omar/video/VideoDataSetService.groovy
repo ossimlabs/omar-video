@@ -4,7 +4,9 @@ import omar.core.Repository
 import omar.core.HttpStatus
 import org.springframework.context.ApplicationContext
 import org.springframework.context.ApplicationContextAware
+import grails.gorm.transactions.Transactional
 
+@Transactional
 class VideoDataSetService implements ApplicationContextAware // extends DataManagerService
 {
 

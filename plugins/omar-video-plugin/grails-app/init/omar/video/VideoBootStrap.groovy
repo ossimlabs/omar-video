@@ -9,18 +9,18 @@ class VideoBootStrap {
 
     def init = { servletContext ->
 
-      def domainClass = grailsApplication.getDomainClass('omar.video.VideoDataSet')
-      def property = domainClass?.getPersistentProperty('fileType')
+      // def domainClass = grailsApplication.getDomainClass('omar.video.VideoDataSet')
+      // def property = domainClass?.getPersistentProperty('fileType')
 
-      if (!property) {
-        def sql = new Sql(dataSource)
+      // if (!property) {
+      //   def sql = new Sql(dataSource)
 
-        sql.executeUpdate(
-          "ALTER TABLE video_data_set ADD COLUMN file_type VARCHAR;"
-          );
+      //   sql.executeUpdate(
+      //     "ALTER TABLE video_data_set ADD COLUMN file_type VARCHAR;"
+      //     );
 
-        sql?.close()
-      }
+      //   sql?.close()
+      // }
 
     }
     def destroy = {
