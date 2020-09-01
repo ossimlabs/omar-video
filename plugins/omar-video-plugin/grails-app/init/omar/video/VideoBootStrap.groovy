@@ -8,19 +8,10 @@ class VideoBootStrap {
     def grailsApplication
 
     def init = { servletContext ->
-
-      // def domainClass = grailsApplication.getDomainClass('omar.video.VideoDataSet')
-      // def property = domainClass?.getPersistentProperty('fileType')
-
-      // if (!property) {
-      //   def sql = new Sql(dataSource)
-
-      //   sql.executeUpdate(
-      //     "ALTER TABLE video_data_set ADD COLUMN file_type VARCHAR;"
-      //     );
-
-      //   sql?.close()
-      // }
+      def sql = new Sql(dataSource)
+      
+      sql?.executeUpdate "create index if not exists raster_entry_ground_geom_idx on raster_entry using gist ( ground_geom )"
+      sql?.close()
 
     }
     def destroy = {
