@@ -54,7 +54,7 @@ podTemplate(containers: [
                           usernameVariable: 'MAVEN_REPO_USERNAME',
                           passwordVariable: 'MAVEN_REPO_PASSWORD']]) {
           sh """
-            ./gradlew publish -PossimMavenProxy=${MAVEN_DOWNLOAD_URL}
+            ./gradlew publish -PossimMavenProxy=${MAVEN_DOWNLOAD_URL} -DupdateReleaseInfo=true
           """
         }
       }
