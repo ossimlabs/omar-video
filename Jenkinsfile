@@ -58,6 +58,10 @@ podTemplate(containers: [
           """
         }
       }
+
+      stage("Clean Workspace"){
+        step([$class: 'WsCleanup'])
+      }
     }
   }
 }
