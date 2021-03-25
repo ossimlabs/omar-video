@@ -54,13 +54,9 @@ podTemplate(containers: [
                           usernameVariable: 'MAVEN_REPO_USERNAME',
                           passwordVariable: 'MAVEN_REPO_PASSWORD']]) {
           sh """
-            ./gradlew publish -PossimMavenProxy=${MAVEN_DOWNLOAD_URL} -DupdateReleaseInfo=true
+            ./gradlew publish -PossimMavenProxy=${MAVEN_DOWNLOAD_URL}
           """
         }
-      }
-
-      stage("Clean Workspace"){
-        step([$class: 'WsCleanup'])
       }
     }
   }
