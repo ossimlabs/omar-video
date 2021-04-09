@@ -119,7 +119,8 @@ class VideoStreamingService
 	{
 		HashMap videoServerLocation = getVideoServerLocation()
 		def videoURL = null
-		String videoFilename = getVideoFilename(params.id)
+		def id = String.valueOf(params.id)
+		String videoFilename = getVideoFilename(id)
 		log.debug videoDataSet.filename
 
 		if ( videoFilename )
