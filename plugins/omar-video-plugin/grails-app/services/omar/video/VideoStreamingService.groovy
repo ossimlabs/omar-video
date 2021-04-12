@@ -115,11 +115,11 @@ class VideoStreamingService
 		result
 	}
 
-	def getVideoDetails( def params )
+	def getVideoDetails( def videoDataSet )
 	{
 		HashMap videoServerLocation = getVideoServerLocation()
 		def videoURL = null
-		def id = String.valueOf(params.id)
+		String id = String.valueOf(videoDataSet.id)
 		String videoFilename = getVideoFilename(id)
 		log.debug videoDataSet.filename
 

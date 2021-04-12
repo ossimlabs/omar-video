@@ -72,7 +72,7 @@ class VideoDataSetService implements ApplicationContextAware // extends DataMana
 						if ( !videoDataSet?.save() )
 						{
 							httpStatusMessage?.status = HttpStatus.UNSUPPORTED_MEDIA_TYPE
-							httpStatusMessage?.message = "Unable to save ${ file }, the file probably alread exists"
+							httpStatusMessage?.message = "Unable to save ${ file }, the file probably already exists"
 							log.error( httpStatusMessage?.message )
 						}
 						else

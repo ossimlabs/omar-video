@@ -45,7 +45,6 @@ class VideoDataSetController
 								 paramType = "query", 
 								 required = false)
 	] )
-
 	def addVideo()
 	{
 		def httpStatusMessage = new HttpStatusMessage()
