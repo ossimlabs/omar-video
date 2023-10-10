@@ -1,0 +1,23 @@
+apiVersion: skaffold/v2beta7
+kind: Config
+metadata:
+  name: omar-video
+build:
+  artifacts:
+    - image: registry.iap.maxar.com/gegd/omar/omar-video
+      jib: 
+        project: omar-video-app
+      context: ./apps/omar-video-app
+  tagPolicy:
+    sha256: {}
+deploy:
+  helm:
+    releases:
+      - name: omar-video # this is the helm release name                
+        chartPath: ./apps/omar-video-app/chart
+        valuesFiles:
+          - ./apps/omar-video-app/values-dev.yaml # provides values to override defaults in chart
+        namespace: omar-3pa-dev
+        setValueTemplates:
+          image.tag: latest
+          image.name: omar-video
